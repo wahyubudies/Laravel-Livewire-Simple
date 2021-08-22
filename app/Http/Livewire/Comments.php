@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Comment;
-use Carbon\Carbon;
 use Livewire\Component;
 
 class Comments extends Component
@@ -41,8 +40,10 @@ class Comments extends Component
         $data->user_id = 1;
         $data->save();
 
-        $this->comments->prepend($data);        
+        $this->comments->prepend($data);            
         $this->reset('newComment');
+
+        alert()->success('sukses menambahkan data!', 'Berhasil');
     }
     public function remove($id)
     {

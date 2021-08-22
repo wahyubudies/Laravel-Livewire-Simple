@@ -1,5 +1,6 @@
 <div>
     <div class="container mt-4">
+        @include('sweet::alert')        
         <form class="row g-3" wire:submit.prevent="addComment">
             <div class="col-10">                
                 <input wire:model.debounce.500ms="newComment" type="text" class="form-control" placeholder="Comments">
@@ -23,5 +24,9 @@
             <small class="text-muted">{{ $comment->body }}</small>
         </div>
         @endforeach
-    </div>
+    </div>    
 </div>
+
+@push('scripts')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@endpush
